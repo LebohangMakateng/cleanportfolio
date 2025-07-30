@@ -136,25 +136,21 @@ export default function Home() {
               <span className="text-xs">02</span>
               <span className="text-sm tracking-wide">// expertise</span>
             </a>
-            <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
-              <span className="text-xs">03</span>
-              <span className="text-sm tracking-wide">// work</span>
-            </a>
-            <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
-              <span className="text-xs">04</span>
-              <span className="text-sm tracking-wide">// experience</span>
-            </a>
-            <a 
-              href="#contact" 
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
-            >
-              <span className="text-xs">05</span>
-              <span className="text-sm tracking-wide">// contact</span>
-            </a>
+                         <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
+               <span className="text-xs">03</span>
+               <span className="text-sm tracking-wide">// work</span>
+             </a>
+             <a 
+               href="#contact" 
+               onClick={(e) => {
+                 e.preventDefault();
+                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+               }}
+               className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
+             >
+               <span className="text-xs">04</span>
+               <span className="text-sm tracking-wide">// contact</span>
+             </a>
           </div>
         </div>
       </nav>
@@ -201,22 +197,21 @@ export default function Home() {
               >
                 // expertise
               </a>
-              <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// work</a>
-              <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// experience</a>
-              <a 
-                href="#contact" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false); // Close mobile menu first
-                  // Add delay to ensure menu closes before scrolling
-                  setTimeout(() => {
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }, 300);
-                }}
-                className="block text-lg hover:text-[#82C8E5] transition-colors"
-              >
-                // contact
-              </a>
+                             <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// work</a>
+               <a 
+                 href="#contact" 
+                 onClick={(e) => {
+                   e.preventDefault();
+                   setMobileMenuOpen(false); // Close mobile menu first
+                   // Add delay to ensure menu closes before scrolling
+                   setTimeout(() => {
+                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                   }, 300);
+                 }}
+                 className="block text-lg hover:text-[#82C8E5] transition-colors"
+               >
+                 // contact
+               </a>
             </div>
           </div>
         </div>
@@ -258,11 +253,11 @@ export default function Home() {
               triggerCardAnimations();
             }
           }}
-          className={`transition-opacity duration-500 ease-out hover:text-[#82C8E5] transition-colors cursor-pointer ${
+          className={`transition-opacity duration-500 ease-out cursor-pointer ${
             showScrollText && !scrollClicked ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <span className="text-black text-sm font-light tracking-wide">SCROLL</span>
+          <span className="text-black text-sm font-light tracking-wide hover:text-[#82C8E5] transition-colors">SCROLL</span>
         </button>
         
         {/* Vertical Line */}
