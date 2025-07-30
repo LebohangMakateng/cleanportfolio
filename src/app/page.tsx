@@ -121,10 +121,10 @@ export default function Home() {
       }`}>
         <div className="flex justify-center items-center py-1">
           <div className="flex space-x-8 text-black font-mono">
-            <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
-              <span className="text-xs">01</span>
-              <span className="text-sm tracking-wide">// home</span>
-            </a>
+                         <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
+               <span className="text-xs">01</span>
+               <span className="text-sm tracking-wide">{'// home'}</span>
+             </a>
             <a 
               href="#expertise" 
               onClick={(e) => {
@@ -134,11 +134,11 @@ export default function Home() {
               className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
             >
               <span className="text-xs">02</span>
-              <span className="text-sm tracking-wide">// expertise</span>
+                             <span className="text-sm tracking-wide">{'// expertise'}</span>
             </a>
                          <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
                <span className="text-xs">03</span>
-               <span className="text-sm tracking-wide">// work</span>
+                               <span className="text-sm tracking-wide">{'// work'}</span>
              </a>
              <a 
                href="#contact" 
@@ -149,7 +149,7 @@ export default function Home() {
                className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
              >
                <span className="text-xs">04</span>
-               <span className="text-sm tracking-wide">// contact</span>
+                               <span className="text-sm tracking-wide">{'// contact'}</span>
              </a>
           </div>
         </div>
@@ -182,7 +182,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-white">
           <div className="flex flex-col items-start justify-start pt-20 px-8">
             <div className="space-y-8 text-black font-mono">
-              <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// home</a>
+                             <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">{'// home'}</a>
               <a 
                 href="#expertise" 
                 onClick={(e) => {
@@ -195,9 +195,9 @@ export default function Home() {
                 }}
                 className="block text-lg hover:text-[#82C8E5] transition-colors"
               >
-                // expertise
+                                 {'// expertise'}
               </a>
-                             <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// work</a>
+                             <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">{'// work'}</a>
                <a 
                  href="#contact" 
                  onClick={(e) => {
@@ -210,7 +210,7 @@ export default function Home() {
                  }}
                  className="block text-lg hover:text-[#82C8E5] transition-colors"
                >
-                 // contact
+                                   {'// contact'}
                </a>
             </div>
           </div>
@@ -332,7 +332,7 @@ export default function Home() {
               </h3>
               <p className="text-black text-xs mb-3 font-mono font-bold">Engineering that scales.</p>
               <p className="text-black text-sm md:text-sm text-xs leading-relaxed font-mono font-bold">
-              Having worked on systems that process real transactions and serve real users, I understand that great software isn't just about clean code—it's about creating solutions that make a meaningful difference to businesses and their customers.
+              Having worked on systems that process real transactions and serve real users, I understand that great software isn&apos;t just about clean code—it&apos;s about creating solutions that make a meaningful difference to businesses and their customers.
               </p>
             </div>
           </div>
