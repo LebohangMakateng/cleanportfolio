@@ -1,0 +1,413 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export default function Home() {
+  const [displayText1, setDisplayText1] = useState('');
+  const [displayText2, setDisplayText2] = useState('');
+  const [showNav, setShowNav] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showScrollLine, setShowScrollLine] = useState(false);
+  const [showScrollText, setShowScrollText] = useState(false);
+  const [scrollClicked, setScrollClicked] = useState(false);
+  const [showCard1, setShowCard1] = useState(false);
+  const [showCard2, setShowCard2] = useState(false);
+  const [showCard3, setShowCard3] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
+  const fullText1 = 'LEBOHANG';
+  const fullText2 = 'MAKATENG';
+
+  // Update time every second
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+      setCurrentTime(timeString);
+    };
+
+    updateTime(); // Set initial time
+    const interval = setInterval(updateTime, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let index1 = 0;
+    let index2 = 0;
+    
+    // Type first word
+    const timer1 = setInterval(() => {
+      if (index1 < fullText1.length) {
+        setDisplayText1(fullText1.slice(0, index1 + 1));
+        index1++;
+      } else {
+        clearInterval(timer1);
+        // Start typing second word after first is complete
+        const timer2 = setInterval(() => {
+          if (index2 < fullText2.length) {
+            setDisplayText2(fullText2.slice(0, index2 + 1));
+            index2++;
+          } else {
+            clearInterval(timer2);
+            // Show navigation and scroll elements after typing is complete
+            setTimeout(() => {
+              setShowNav(true);
+              setShowScrollLine(true);
+              // Show scroll text after line animation
+              setTimeout(() => {
+                setShowScrollText(true);
+              }, 800); // Delay for line animation
+            }, 500);
+          }
+        }, 150); // Slightly faster for second word
+      }
+    }, 200); // Speed for first word
+
+    return () => {
+      clearInterval(timer1);
+    };
+  }, []);
+
+  // Function to trigger card animations
+  const triggerCardAnimations = () => {
+    setShowCard1(true);
+    // Desktop: first, third, then middle. Mobile: sequential
+    setTimeout(() => {
+      if (window.innerWidth >= 768) { // Desktop
+        setShowCard3(true);
+        setTimeout(() => {
+          setShowCard2(true);
+        }, 600);
+      } else { // Mobile
+        setShowCard2(true);
+        setTimeout(() => {
+          setShowCard3(true);
+        }, 600);
+      }
+    }, 600);
+  };
+
+  // Add scroll event listener to hide scroll elements and trigger cards
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 150) { // Hide when scrolled down more than 150px
+        setScrollClicked(true);
+        // Trigger card animations when scrolling
+        if (!showCard1) {
+          triggerCardAnimations();
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [showCard1]);
+
+  return (
+    <div className="min-h-screen bg-white relative">
+      {/* Clock Display */}
+      <div className="fixed top-4 right-4 z-50 text-gray-600 font-mono text-sm">
+        {currentTime}
+      </div>
+
+      {/* Desktop Navigation Menu */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-1200 ease-out hidden md:block ${
+        showNav ? 'translate-y-5' : '-translate-y-full'
+      }`}>
+        <div className="flex justify-center items-center py-1">
+          <div className="flex space-x-8 text-black font-mono">
+            <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
+              <span className="text-xs">01</span>
+              <span className="text-sm tracking-wide">// home</span>
+            </a>
+            <a 
+              href="#expertise" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
+            >
+              <span className="text-xs">02</span>
+              <span className="text-sm tracking-wide">// expertise</span>
+            </a>
+            <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
+              <span className="text-xs">03</span>
+              <span className="text-sm tracking-wide">// work</span>
+            </a>
+            <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
+              <span className="text-xs">04</span>
+              <span className="text-sm tracking-wide">// experience</span>
+            </a>
+            <a 
+              href="#contact" 
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
+            >
+              <span className="text-xs">05</span>
+              <span className="text-sm tracking-wide">// contact</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Hamburger Menu Button */}
+      <button 
+        className={`fixed top-4 left-4 z-50 md:hidden transition-opacity duration-300 ${
+          showNav ? 'opacity-100' : 'opacity-0'
+        }`}
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        <div className="w-6 h-6 flex flex-col justify-center items-center space-y-1">
+          <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${
+            mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''
+          }`}></div>
+          <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${
+            mobileMenuOpen ? 'opacity-0' : ''
+          }`}></div>
+          <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${
+            mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''
+          }`}></div>
+        </div>
+      </button>
+
+      {/* Mobile Navigation Menu Overlay */}
+      <div className={`fixed inset-0 z-40 md:hidden transition-transform duration-300 ease-out ${
+        mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+      }`}>
+        <div className="absolute inset-0 bg-white">
+          <div className="flex flex-col items-start justify-start pt-20 px-8">
+            <div className="space-y-8 text-black font-mono">
+              <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// home</a>
+              <a 
+                href="#expertise" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false); // Close mobile menu first
+                  // Add delay to ensure menu closes before scrolling
+                  setTimeout(() => {
+                    document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 300);
+                }}
+                className="block text-lg hover:text-[#82C8E5] transition-colors"
+              >
+                // expertise
+              </a>
+              <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// work</a>
+              <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">// experience</a>
+              <a 
+                href="#contact" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false); // Close mobile menu first
+                  // Add delay to ensure menu closes before scrolling
+                  setTimeout(() => {
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 300);
+                }}
+                className="block text-lg hover:text-[#82C8E5] transition-colors"
+              >
+                // contact
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Line and Text */}
+      <div className="fixed bottom-0 left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center">
+        {/* Scroll Text Button */}
+        <button 
+          onClick={() => {
+            setScrollClicked(true);
+            // Custom slow scroll animation
+            const startPosition = window.pageYOffset;
+            const targetPosition = window.innerHeight;
+            const distance = targetPosition - startPosition;
+            const duration = 4000; // 4 seconds for much slower scroll
+            let startTime: number | null = null;
+            
+            function animation(currentTime: number) {
+              if (startTime === null) startTime = currentTime;
+              const timeElapsed = currentTime - startTime;
+              const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+              window.scrollTo(0, run);
+              if (timeElapsed < duration) requestAnimationFrame(animation);
+            }
+            
+            // Easing function for smooth animation
+            function easeInOutQuad(t: number, b: number, c: number, d: number) {
+              t /= d / 2;
+              if (t < 1) return c / 2 * t * t + b;
+              t--;
+              return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+            
+            requestAnimationFrame(animation);
+            
+            // Trigger card animations when scroll button is clicked
+            if (!showCard1) {
+              triggerCardAnimations();
+            }
+          }}
+          className={`transition-opacity duration-500 ease-out hover:text-[#82C8E5] transition-colors cursor-pointer ${
+            showScrollText && !scrollClicked ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <span className="text-black text-sm font-light tracking-wide">SCROLL</span>
+        </button>
+        
+        {/* Vertical Line */}
+        <div className={`w-px bg-black transition-all duration-800 ease-out mt-2 ${
+          showScrollLine && !scrollClicked ? 'h-20' : 'h-0'
+        }`}></div>
+      </div>
+
+      {/* Main Content */}
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <h1 className="font-archivo-black text-black text-5xl md:text-6xl tracking-tight leading-none">
+            {displayText1}
+          </h1>
+          <h2 className="font-archivo-black text-black text-5xl md:text-6xl tracking-tight leading-none mt-1">
+            {displayText2}
+          </h2>
+        </div>
+      </div>
+
+      {/* Second Section - Expertise */}
+      <div id="expertise" className="min-h-screen bg-white flex flex-col items-center justify-center px-4 pb-20">
+        <div className="text-center mb-12 md:mb-12 mb-2">
+          <h2 className="font-archivo-black text-black text-2xl md:text-4xl lg:text-5xl tracking-tight leading-none">
+            EXPERTISE
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full md:max-w-5xl max-w-sm">
+          {/* Software Development Card */}
+          <div className={`border border-black p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+            showCard1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+          }`}>
+            <div className="text-center">
+              {/* Desktop Monitor Icon */}
+              <div className="w-20 h-20 md:w-20 md:h-20 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                  <text x="12" y="13" textAnchor="middle" fontSize="6" fill="black">&lt;/&gt;</text>
+                </svg>
+              </div>
+              
+              <h3 className="text-lg md:text-lg text-base font-medium mb-3 text-black">
+                <span className="border-b-2 border-pink-500">Software</span> Development
+              </h3>
+              <p className="text-black text-xs mb-3 font-mono font-bold">Full-stack, future-focused.</p>
+              <p className="text-black text-sm md:text-sm text-xs leading-relaxed font-mono font-bold">
+              From API development to full-stack applications, I leverage modern technologies (python, C#, Angular, and cloud platforms) to deliver solutions that are not just functional, but future-ready. 
+              </p>
+            </div>
+          </div>
+
+          {/* Frontend Dev Card */}
+          <div className={`border border-black p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+            showCard2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+          }`}>
+            <div className="text-center">
+              {/* React Atom Icon */}
+              <div className="w-20 h-20 md:w-20 md:h-20 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1">
+                  <circle cx="12" cy="12" r="2"/>
+                  <path d="M12 1v4m0 6v4"/>
+                  <path d="M12 1a8 8 0 0 1 8 8m-8-8a8 8 0 0 0-8 8"/>
+                  <path d="M12 5a4 4 0 0 1 4 4m-4-4a4 4 0 0 0-4 4"/>
+                </svg>
+              </div>
+              
+              <h3 className="text-lg md:text-lg text-base font-medium mb-3 text-black">
+                <span className="border-b-2 border-blue-500">Solutions Architecture</span>
+              </h3>
+              <p className="text-black text-xs mb-3 font-mono font-bold">Engineering that scales.</p>
+              <p className="text-black text-sm md:text-sm text-xs leading-relaxed font-mono font-bold">
+              Having worked on systems that process real transactions and serve real users, I understand that great software isn't just about clean code—it's about creating solutions that make a meaningful difference to businesses and their customers.
+              </p>
+            </div>
+          </div>
+
+          {/* Flutter Dev Card */}
+          <div className={`border border-black p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+            showCard3 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+          }`}>
+            <div className="text-center">
+              {/* Flutter Logo Icon */}
+              <div className="w-20 h-20 md:w-20 md:h-20 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1">
+                  <path d="M6 4l6 6-6 6"/>
+                  <path d="M14 4l6 6-6 6"/>
+                </svg>
+              </div>
+              
+              <h3 className="text-lg md:text-lg text-base font-medium mb-3 text-black">
+                <span className="border-b-2 border-orange-500">Efficiency Catalyst</span>
+              </h3>
+              <p className="text-black text-xs mb-3 font-mono font-bold">Automation, AI</p>
+              <p className="text-black text-sm md:text-sm text-xs leading-relaxed font-mono font-bold">
+              I partner with innovative minds to design and build secure, scalable software solutions that drive real results,
+              bringing enterprise-level expertise ready to elevate digital presences.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Section */}
+      <div id="contact" className="bg-white py-16 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-archivo-black text-black text-2xl md:text-3xl lg:text-4xl tracking-tight leading-none mb-8">
+            GET IN TOUCH
+          </h2>
+          <div className="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
+            {/* Call Button */}
+            <a 
+              href="tel:+27640671506"
+              className="flex items-center space-x-3 px-6 py-3 border border-black hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer text-black"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <span className="font-mono text-sm">+27 64 067 1506</span>
+            </a>
+            
+            {/* Email Link */}
+            <a 
+              href="mailto:lebohangdev@gmail.com"
+              className="flex items-center space-x-3 px-6 py-3 border border-black hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer text-black"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <span className="font-mono text-sm">lebohangdev@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Copyright Footer */}
+      <div className="bg-white py-8 px-4 border-t border-gray-200">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-black text-sm font-mono">
+            © 2025 Lebohang Makateng
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
