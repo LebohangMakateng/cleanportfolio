@@ -145,10 +145,10 @@ export default function Home() {
               <span className="text-xs">03</span>
               <span className="text-sm tracking-wide">{'// projects'}</span>
               {showProjectsDropdown && (
-                <div className="absolute top-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg py-2 min-w-[120px] z-50">
+                <div className="absolute top-full mt-2 z-50">
                   <a 
                     href="/projects/spent" 
-                    className="block px-4 py-2 text-sm text-black hover:bg-gray-100 transition-colors"
+                    className="block px-4 py-2 text-base text-gray-600 hover:text-[#82C8E5] transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
                   >
                     Spent
                   </a>
