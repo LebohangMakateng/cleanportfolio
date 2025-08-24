@@ -97,29 +97,19 @@ export default function Page() {
           Spent analyzes your bank statements and reveals exactly where your
           money went through beautiful, interactive visualizations.
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
-          <a
-            className="rounded-xl px-5 py-3 font-medium focus:outline-none focus-visible:ring-2"
-            style={{
-              backgroundColor: theme.primary,
-              color: theme.primaryText,
-              borderRadius: theme.radius,
-            }}
-            href="https://app.spent.example"
-          >
-            Try the Demo
-          </a>
-          <a
-            className="rounded-xl px-5 py-3 border focus:outline-none focus-visible:ring-2"
-            style={{
-              borderColor: "#2A335D",
-              borderRadius: theme.radius,
-            }}
-            href="https://github.com/yourusername/spent"
-          >
-            View Source
-          </a>
-        </div>
+                 <div className="mt-8 flex flex-wrap gap-3">
+           <a
+             className="rounded-xl px-5 py-3 font-medium focus:outline-none focus-visible:ring-2"
+             style={{
+               backgroundColor: theme.primary,
+               color: theme.primaryText,
+               borderRadius: theme.radius,
+             }}
+             href="https://app.spent.example"
+           >
+             Try the Demo
+           </a>
+         </div>
         <ul className="mt-6 flex flex-wrap gap-4 text-sm" style={{ color: theme.muted }}>
           <li>Under 10 seconds</li>
           <li>96% categorization accuracy</li>
@@ -350,26 +340,19 @@ export default function Page() {
           <h2 className="text-2xl md:text-3xl font-semibold">
             Ready to see where your money goes?
           </h2>
-          <div className="mt-6 flex justify-center gap-3">
-            <a
-              className="rounded-xl px-5 py-3 font-medium focus:outline-none focus-visible:ring-2"
-              style={{
-                backgroundColor: theme.primary,
-                color: theme.primaryText,
-                borderRadius: theme.radius,
-              }}
-              href="https://app.spent.example"
-            >
-              Open Spent
-            </a>
-            <a
-              className="rounded-xl px-5 py-3 border focus:outline-none focus-visible:ring-2"
-              style={{ borderColor: "#2A335D", borderRadius: theme.radius }}
-              href="https://github.com/yourusername/spent"
-            >
-              See the Code
-            </a>
-          </div>
+                     <div className="mt-6 flex justify-center gap-3">
+             <a
+               className="rounded-xl px-5 py-3 font-medium focus:outline-none focus-visible:ring-2"
+               style={{
+                 backgroundColor: theme.primary,
+                 color: theme.primaryText,
+                 borderRadius: theme.radius,
+               }}
+               href="https://app.spent.example"
+             >
+               Open Spent
+             </a>
+           </div>
         </div>
       </section>
     </main>
