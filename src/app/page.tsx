@@ -14,6 +14,7 @@ export default function Home() {
   const [showCard2, setShowCard2] = useState(false);
   const [showCard3, setShowCard3] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [showProjectsDropdown, setShowProjectsDropdown] = useState(false);
   const fullText1 = 'LEBOHANG';
   const fullText2 = 'MAKATENG';
 
@@ -136,10 +137,24 @@ export default function Home() {
               <span className="text-xs">02</span>
                              <span className="text-sm tracking-wide">{'// expertise'}</span>
             </a>
-                         <a href="#" className="flex flex-col items-center hover:text-[#82C8E5] transition-colors">
-               <span className="text-xs">03</span>
-                               <span className="text-sm tracking-wide">{'// work'}</span>
-             </a>
+            <div 
+              className="relative flex flex-col items-center hover:text-[#82C8E5] transition-colors cursor-pointer"
+              onMouseEnter={() => setShowProjectsDropdown(true)}
+              onMouseLeave={() => setShowProjectsDropdown(false)}
+            >
+              <span className="text-xs">03</span>
+              <span className="text-sm tracking-wide">{'// projects'}</span>
+              {showProjectsDropdown && (
+                <div className="absolute top-full mt-2 z-50">
+                  <a 
+                    href="/projects/spent" 
+                    className="block px-4 py-2 text-base text-gray-600 hover:text-[#82C8E5] transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
+                  >
+                    Spent
+                  </a>
+                </div>
+              )}
+            </div>
              <a 
                href="#contact" 
                onClick={(e) => {
@@ -197,7 +212,25 @@ export default function Home() {
               >
                                  {'// expertise'}
               </a>
-                             <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">{'// work'}</a>
+            <div className="space-y-2">
+              <button 
+                onClick={() => setShowProjectsDropdown(!showProjectsDropdown)}
+                className="block text-lg hover:text-[#82C8E5] transition-colors text-left w-full"
+              >
+                {'// projects'}
+              </button>
+              {showProjectsDropdown && (
+                <div className="ml-4 space-y-2">
+                  <a 
+                    href="/projects/spent" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="block text-base text-gray-600 hover:text-[#82C8E5] transition-colors"
+                  >
+                    Spent
+                  </a>
+                </div>
+              )}
+            </div>
                <a 
                  href="#contact" 
                  onClick={(e) => {
