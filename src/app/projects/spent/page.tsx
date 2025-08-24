@@ -47,7 +47,7 @@ function JsonLd() {
     offers: { "@type": "Offer", price: "0" },
     description:
       "Analyze bank statements to visualize spending with charts and insights.",
-    url: "https://your-portfolio.example/projects/spent",
+    url: "https://www.lebohangmakateng.com/projects/spent",
   };
   return (
     <script
@@ -348,7 +348,7 @@ export default function Page() {
                  color: theme.primaryText,
                  borderRadius: theme.radius,
                }}
-               href="https://app.spent.example"
+               href="https://spentbylebo.onrender.com/"
              >
                Open Spent
              </a>
