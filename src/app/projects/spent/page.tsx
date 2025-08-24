@@ -142,7 +142,6 @@ export default function Page() {
               icon: "🔍",
               title: "Smart Analysis",
               points: [
-                "CSV parser for SA banks: FNB, ABSA, Standard Bank, Nedbank, Capitec",
                 "Intelligent categorization (96% accuracy)",
                 "Real-time processing under 10 seconds",
               ],
@@ -291,7 +290,7 @@ export default function Page() {
             },
             {
               q: "How accurate is categorization?",
-              a: "Tested at ~96% accuracy with SA merchant recognition.",
+              a: "Tested at ~96% accuracy with merchant recognition.",
             },
             { q: "How fast is it?", a: "Typically under 10 seconds for typical statements." },
           ].map((item) => (
