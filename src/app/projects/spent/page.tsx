@@ -105,7 +105,7 @@ export default function Page() {
                color: theme.primaryText,
                borderRadius: theme.radius,
              }}
-             href="https://app.spent.example"
+             href="https://spentbylebo.onrender.com/"
            >
              Try the Demo
            </a>
