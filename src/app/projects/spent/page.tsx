@@ -271,30 +271,6 @@ export default function Page() {
           ))}
         </div>
       </section>
-
-      {/* Tech Stack */}
-      <section
-        aria-labelledby="tech-title"
-        className="px-6 md:px-10 lg:px-16 py-16 max-w-6xl mx-auto"
-      >
-        <h2 id="tech-title" className="text-2xl md:text-3xl font-semibold">
-          Built with
-        </h2>
-        <div className="mt-6 flex flex-wrap gap-3 text-sm">
-          {["Python", "Pandas", "Streamlit", "Plotly", "Rules-based AI"].map(
-            (t) => (
-              <span
-                key={t}
-                className="px-3 py-2 rounded-full border"
-                style={{ borderColor: "#2A335D" }}
-              >
-                {t}
-              </span>
-            )
-          )}
-        </div>
-      </section>
-
       {/* FAQ */}
       <section
         aria-labelledby="faq-title"
