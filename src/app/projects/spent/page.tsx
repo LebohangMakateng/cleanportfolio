@@ -123,44 +123,19 @@ export default function Page() {
         <ul className="mt-6 flex flex-wrap gap-4 text-sm" style={{ color: theme.muted }}>
           <li>Under 10 seconds</li>
           <li>96% categorization accuracy</li>
-          <li>No data stored</li>
+          <li>Privacy-first</li>
         </ul>
 
-        <div
-          className="mt-12 rounded-2xl p-4 md:p-6"
-          style={{ backgroundColor: theme.card, boxShadow: theme.shadow }}
-        >
-          <Image
-            src="/images/projects/spent/hero.png"
-            alt="Spent dashboard overview"
-            width={1440}
-            height={900}
-            className="w-full h-auto rounded-xl"
-            priority
-          />
-        </div>
-      </section>
-
-      {/* Badges / Social Proof */}
-      <section
-        aria-label="Social proof"
-        className="px-6 md:px-10 lg:px-16 max-w-6xl mx-auto"
-      >
-        <div className="flex flex-wrap gap-2 text-xs" style={{ color: theme.muted }}>
-          {[
-            "Made in South Africa 🇿🇦",
-            "Open Source",
-            "Privacy-first",
-          ].map((badge) => (
-            <span
-              key={badge}
-              className="px-3 py-1 rounded-full border"
-              style={{ borderColor: "#2A335D" }}
-            >
-              {badge}
-            </span>
-          ))}
-        </div>
+                 <div className="mt-12">
+                                            <Image
+               src="/images/image1.png"
+               alt="Spent dashboard overview"
+               width={1440}
+               height={900}
+               className="w-full h-auto rounded-2xl"
+               priority
+             />
+         </div>
       </section>
 
       {/* Feature Grid */}
@@ -250,24 +225,28 @@ export default function Page() {
 
       {/* Screens */}
       <section className="px-6 md:px-10 lg:px-16 py-16 max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-6">
-          <Image
-            src="/images/projects/spent/pie.png"
-            alt="Category breakdown pie chart"
-            width={1200}
-            height={800}
-            className="rounded-2xl w-full h-auto"
-            loading="lazy"
-          />
-          <Image
-            src="/images/projects/spent/trends.png"
-            alt="Spending trends line chart"
-            width={1200}
-            height={800}
-            className="rounded-2xl w-full h-auto"
-            loading="lazy"
-          />
-        </div>
+                          <div className="grid md:grid-cols-2 gap-6">
+            <div 
+              className="rounded-2xl w-full h-80 flex items-center justify-center"
+              style={{ backgroundColor: theme.card }}
+            >
+              <div className="text-center">
+                <div className="text-6xl mb-4">📊</div>
+                <p className="text-lg font-medium">Pie Chart Breakdown</p>
+                <p className="text-sm" style={{ color: theme.muted }}>Category spending visualization</p>
+              </div>
+            </div>
+            <div 
+              className="rounded-2xl w-full h-80 flex items-center justify-center"
+              style={{ backgroundColor: theme.card }}
+            >
+              <div className="text-center">
+                <div className="text-6xl mb-4">📈</div>
+                <p className="text-lg font-medium">Spending Trends</p>
+                <p className="text-sm" style={{ color: theme.muted }}>Monthly spending patterns</p>
+              </div>
+            </div>
+          </div>
       </section>
 
       {/* Categories */}
