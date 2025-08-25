@@ -166,6 +166,13 @@ export default function Home() {
                <span className="text-xs">04</span>
                                <span className="text-sm tracking-wide">{'// contact'}</span>
              </a>
+             <a 
+               href="/cv" 
+               className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
+             >
+               <span className="text-xs">05</span>
+               <span className="text-sm tracking-wide">{'// cv'}</span>
+             </a>
           </div>
         </div>
       </nav>
@@ -244,6 +251,13 @@ export default function Home() {
                  className="block text-lg hover:text-[#82C8E5] transition-colors"
                >
                                    {'// contact'}
+               </a>
+               <a 
+                 href="/cv" 
+                 onClick={() => setMobileMenuOpen(false)}
+                 className="block text-lg hover:text-[#82C8E5] transition-colors"
+               >
+                 {'// cv'}
                </a>
             </div>
           </div>
