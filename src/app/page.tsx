@@ -282,7 +282,7 @@ export default function Home() {
             setScrollClicked(true);
             // Custom slow scroll animation
             const startPosition = window.pageYOffset;
-            const targetPosition = window.innerHeight;
+            const targetPosition = window.innerHeight - 130;
             const distance = targetPosition - startPosition;
             const duration = 4000; // 4 seconds for much slower scroll
             let startTime: number | null = null;
