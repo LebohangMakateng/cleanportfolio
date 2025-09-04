@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
+import Script from 'next/script';
 
 export default function Home() {
   const [displayText1, setDisplayText1] = useState('');
@@ -13,6 +14,9 @@ export default function Home() {
   const [showCard1, setShowCard1] = useState(false);
   const [showCard2, setShowCard2] = useState(false);
   const [showCard3, setShowCard3] = useState(false);
+  const [showBadge1, setShowBadge1] = useState(false);
+  const [showBadge2, setShowBadge2] = useState(false);
+  const [showBadge3, setShowBadge3] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
   const [showProjectsDropdown, setShowProjectsDropdown] = useState(false);
   const fullText1 = 'LEBOHANG';
@@ -74,8 +78,19 @@ export default function Home() {
     };
   }, []);
 
+  // Function to trigger badge animations (left to right)
+  const triggerBadgeAnimations = useCallback(() => {
+    setShowBadge1(true);
+    setTimeout(() => {
+      setShowBadge2(true);
+      setTimeout(() => {
+        setShowBadge3(true);
+      }, 400); // 400ms between each badge
+    }, 400);
+  }, []);
+
   // Function to trigger card animations
-  const triggerCardAnimations = () => {
+  const triggerCardAnimations = useCallback(() => {
     setShowCard1(true);
     // Desktop: first, third, then middle. Mobile: sequential
     setTimeout(() => {
@@ -83,15 +98,23 @@ export default function Home() {
         setShowCard3(true);
         setTimeout(() => {
           setShowCard2(true);
+          // Trigger badge animations after all cards are shown
+          setTimeout(() => {
+            triggerBadgeAnimations();
+          }, 800); // Wait a bit after the last card appears
         }, 600);
       } else { // Mobile
         setShowCard2(true);
         setTimeout(() => {
           setShowCard3(true);
+          // Trigger badge animations after all cards are shown
+          setTimeout(() => {
+            triggerBadgeAnimations();
+          }, 800); // Wait a bit after the last card appears
         }, 600);
       }
     }, 600);
-  };
+  }, [triggerBadgeAnimations]);
 
   // Add scroll event listener to hide scroll elements and trigger cards
   useEffect(() => {
@@ -107,7 +130,8 @@ export default function Home() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [showCard1]);
+  }, [showCard1, triggerCardAnimations]);
+
 
   return (
     <div className="min-h-screen bg-white relative">
@@ -315,13 +339,13 @@ export default function Home() {
       <div id="expertise" className="min-h-screen bg-white flex flex-col items-center justify-center px-4 pb-20">
         <div className="text-center mb-12 md:mb-12 mb-2">
           <h2 className="font-archivo-black text-black text-2xl md:text-4xl lg:text-5xl tracking-tight leading-none">
-            EXPERTISE
+          WHERE I THRIVE
           </h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full md:max-w-5xl max-w-sm">
           {/* Software Development Card */}
-          <div className={`border border-black p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+          <div className={` p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
             showCard1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
@@ -346,7 +370,7 @@ export default function Home() {
           </div>
 
           {/* Frontend Dev Card */}
-          <div className={`border border-black p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+          <div className={` p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
             showCard2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
@@ -371,7 +395,7 @@ export default function Home() {
           </div>
 
           {/* Flutter Dev Card */}
-          <div className={`border border-black p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+          <div className={`p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
             showCard3 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
@@ -394,6 +418,33 @@ export default function Home() {
             </div>
           </div>
         </div>
+        
+        <div className="text-center">
+        <h3 className="text-lg md:text-lg text-base font-medium mt-12 text-black">
+                <span className="">NEW SKILLS IN THE ARSENAL</span>
+              </h3>
+        </div>
+          
+        {/* Credly Badges */}
+         <div className="flex flex-wrap justify-center items-center gap-4 mt-12 max-w-4xl">
+           <div className={`transition-all duration-1000 ease-out transform ${
+             showBadge1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+           }`}>
+             <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="33a5a35f-65f5-4b87-b2d4-8e98d289c827" data-share-badge-host="https://www.credly.com"></div>
+           </div>
+           <div className={`transition-all duration-1000 ease-out transform ${
+             showBadge2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+           }`}>
+             <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="29fa478e-77f2-4b04-863a-dc09a91a767e" data-share-badge-host="https://www.credly.com"></div>
+           </div>
+           <div className={`transition-all duration-1000 ease-out transform ${
+             showBadge3 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+           }`}>
+             <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="fd5bd3ca-fcc4-4b42-b273-fb0dc773aafa" data-share-badge-host="https://www.credly.com"></div>
+           </div>
+         </div>
+         
+
       </div>
 
       {/* Contact Section */}
@@ -436,6 +487,12 @@ export default function Home() {
           </p>
         </div>
       </div>
+      
+      {/* Credly Script */}
+      <Script
+        src="//cdn.credly.com/assets/utilities/embed.js"
+        strategy="lazyOnload"
+      />
     </div>
   );
 }
