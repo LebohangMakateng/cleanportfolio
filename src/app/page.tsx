@@ -17,10 +17,15 @@ export default function Home() {
   const [showBadge1, setShowBadge1] = useState(false);
   const [showBadge2, setShowBadge2] = useState(false);
   const [showBadge3, setShowBadge3] = useState(false);
+  const [showProject1, setShowProject1] = useState(false);
+  const [showProject2, setShowProject2] = useState(false);
+  const [showProject3, setShowProject3] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
   const [showProjectsDropdown, setShowProjectsDropdown] = useState(false);
   const fullText1 = 'LEBOHANG';
   const fullText2 = 'MAKATENG';
+  const fullText3 = 'Engineer.';
+  const fullText4 = 'Builder.';
 
   // Update time every second
   useEffect(() => {
@@ -78,6 +83,17 @@ export default function Home() {
     };
   }, []);
 
+  // Function to trigger project animations (left to right)
+  const triggerProjectAnimations = useCallback(() => {
+    setShowProject1(true);
+    setTimeout(() => {
+      setShowProject2(true);
+      setTimeout(() => {
+        setShowProject3(true);
+      }, 400); // 400ms between each project
+    }, 400);
+  }, []);
+
   // Function to trigger badge animations (left to right)
   const triggerBadgeAnimations = useCallback(() => {
     setShowBadge1(true);
@@ -85,9 +101,13 @@ export default function Home() {
       setShowBadge2(true);
       setTimeout(() => {
         setShowBadge3(true);
+        // Trigger project animations after badges are shown
+        setTimeout(() => {
+          triggerProjectAnimations();
+        }, 800);
       }, 400); // 400ms between each badge
     }, 400);
-  }, []);
+  }, [triggerProjectAnimations]);
 
   // Function to trigger card animations
   const triggerCardAnimations = useCallback(() => {
@@ -349,15 +369,6 @@ export default function Home() {
             showCard1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
-              {/* Desktop Monitor Icon */}
-              <div className="w-20 h-20 md:w-20 md:h-20 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                  <line x1="8" y1="21" x2="16" y2="21"/>
-                  <line x1="12" y1="17" x2="12" y2="21"/>
-                  <text x="12" y="13" textAnchor="middle" fontSize="6" fill="black">&lt;/&gt;</text>
-                </svg>
-              </div>
               
               <h3 className="text-lg md:text-lg text-base font-medium mb-3 text-black">
                 <span className="border-b-2 border-pink-500">Software</span> Development
@@ -374,15 +385,6 @@ export default function Home() {
             showCard2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
-              {/* React Atom Icon */}
-              <div className="w-20 h-20 md:w-20 md:h-20 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1">
-                  <circle cx="12" cy="12" r="2"/>
-                  <path d="M12 1v4m0 6v4"/>
-                  <path d="M12 1a8 8 0 0 1 8 8m-8-8a8 8 0 0 0-8 8"/>
-                  <path d="M12 5a4 4 0 0 1 4 4m-4-4a4 4 0 0 0-4 4"/>
-                </svg>
-              </div>
               
               <h3 className="text-lg md:text-lg text-base font-medium mb-3 text-black">
                 <span className="border-b-2 border-blue-500">Solutions Architecture</span>
@@ -399,13 +401,6 @@ export default function Home() {
             showCard3 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
-              {/* Flutter Logo Icon */}
-              <div className="w-20 h-20 md:w-20 md:h-20 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-full h-full" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="1">
-                  <path d="M6 4l6 6-6 6"/>
-                  <path d="M14 4l6 6-6 6"/>
-                </svg>
-              </div>
               
               <h3 className="text-lg md:text-lg text-base font-medium mb-3 text-black">
                 <span className="border-b-2 border-orange-500">Efficiency Catalyst</span>
@@ -444,6 +439,129 @@ export default function Home() {
            </div>
          </div>
          
+        {/* Projects Section */}
+        <div className="text-center mt-20">
+          <h3 className="text-lg md:text-lg text-base font-medium mb-8 text-black">
+            <span className="">WHAT I HAVE BEEN UP TO</span>
+          </h3>
+        </div>
+
+        {/* Project Cards */}
+        <div className="flex flex-col gap-8 max-w-5xl w-full mt-8">
+          {/* Project 1 */}
+          <div className={`transition-all duration-300 transform ${
+            showProject1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+          }`}>
+            <div className="flex flex-col md:flex-row gap-1.5">
+              {/* Project Image/Preview - Left Side */}
+              <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🚀</div>
+                  <div className="text-sm font-mono">Project Preview</div>
+                </div>
+              </div>
+              {/* Project Content - Right Side */}
+              <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
+                <h4 className="font-archivo-black text-black text-lg mb-2">Spotify Connected App</h4>
+                <p className="text-gray-600 text-sm mb-4 font-mono">
+                  Video course that teaches how to build a web app with the Spotify Web API. Topics covered include the principles of REST APIs, user auth flows, Node, Express, React, Styled Components, and more.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-[#82C8E5] text-white text-xs font-mono rounded">React</span>
+                  <span className="px-3 py-1 bg-green-500 text-white text-xs font-mono rounded">Express</span>
+                  <span className="px-3 py-1 bg-yellow-500 text-white text-xs font-mono rounded">Spotify API</span>
+                  <span className="px-3 py-1 bg-purple-500 text-white text-xs font-mono rounded">Heroku</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <span>⭐ 694</span>
+                  </div>
+                  <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 2 */}
+          <div className={`transition-all duration-300 transform ${
+            showProject2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+          }`}>
+            <div className="flex flex-col md:flex-row gap-1.5">
+              {/* Project Image/Preview - Left Side */}
+              <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">🎨</div>
+                  <div className="text-sm font-mono">Theme Preview</div>
+                </div>
+              </div>
+              {/* Project Content - Right Side */}
+              <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
+                <h4 className="font-archivo-black text-black text-lg mb-2">Halcyon Theme</h4>
+                <p className="text-gray-600 text-sm mb-4 font-mono">
+                  Minimal dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Clean design focused on readability and reduced eye strain during long coding sessions.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded">VS Code</span>
+                  <span className="px-3 py-1 bg-orange-500 text-white text-xs font-mono rounded">Sublime</span>
+                  <span className="px-3 py-1 bg-green-600 text-white text-xs font-mono rounded">Atom</span>
+                  <span className="px-3 py-1 bg-gray-600 text-white text-xs font-mono rounded">iTerm</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <span>📥 100k+ Installs</span>
+                  </div>
+                  <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Project 3 */}
+          <div className={`transition-all duration-300 transform ${
+            showProject3 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+          }`}>
+            <div className="flex flex-col md:flex-row gap-1.5">
+              {/* Project Image/Preview - Left Side */}
+              <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="text-white text-center">
+                  <div className="text-4xl mb-2">💼</div>
+                  <div className="text-sm font-mono">Portfolio Site</div>
+                </div>
+              </div>
+              {/* Project Content - Right Side */}
+              <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
+                <h4 className="font-archivo-black text-black text-lg mb-2">brittanychiang.com (v4)</h4>
+                <p className="text-gray-600 text-sm mb-4 font-mono">
+                  An old portfolio site built with Gatsby with 6k+ stars and 3k+ forks. Features smooth animations, responsive design, and modern web development practices.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-3 py-1 bg-purple-600 text-white text-xs font-mono rounded">Gatsby</span>
+                  <span className="px-3 py-1 bg-blue-500 text-white text-xs font-mono rounded">React</span>
+                  <span className="px-3 py-1 bg-pink-500 text-white text-xs font-mono rounded">Styled Components</span>
+                  <span className="px-3 py-1 bg-green-500 text-white text-xs font-mono rounded">GraphQL</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <span>⭐ 6,000+</span>
+                  </div>
+                  <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
 
