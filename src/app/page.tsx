@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import Script from 'next/script';
+import Image from 'next/image';
 
 export default function Home() {
   const [displayText1, setDisplayText1] = useState('');
@@ -454,22 +455,26 @@ export default function Home() {
           }`}>
             <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/4 h-32 md:h-32 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0">
-                <div className="text-white text-center">
-                  <div className="text-sm font-mono">Project Preview</div>
-                </div>
+              <div className="w-full md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden">
+                <Image 
+                  src="/images/spent.png" 
+                  alt="Spent App Screenshot" 
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Project Content - Right Side */}
               <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
-                <h4 className="font-archivo-black text-black text-lg mb-2">Spotify Connected App</h4>
+                <h4 className="font-archivo-black text-black text-lg mb-2">Spent - Expense Tracker</h4>
                 <p className="text-gray-600 text-sm mb-4 font-mono">
-                  Video course that teaches how to build a web app with the Spotify Web API. Topics covered include the principles of REST APIs, user auth flows, Node, Express, React, Styled Components, and more.
+                  A modern expense tracking application built with React and Node.js. Features include expense categorization, budget tracking, data visualization, and real-time analytics for personal finance management.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="px-3 py-1 bg-[#82C8E5] text-white text-xs font-mono rounded">React</span>
-                  <span className="px-3 py-1 bg-green-500 text-white text-xs font-mono rounded">Express</span>
-                  <span className="px-3 py-1 bg-yellow-500 text-white text-xs font-mono rounded">Spotify API</span>
-                  <span className="px-3 py-1 bg-purple-500 text-white text-xs font-mono rounded">Heroku</span>
+                  <span className="px-3 py-1 bg-green-500 text-white text-xs font-mono rounded">Node.js</span>
+                  <span className="px-3 py-1 bg-yellow-500 text-white text-xs font-mono rounded">MongoDB</span>
+                  <span className="px-3 py-1 bg-purple-500 text-white text-xs font-mono rounded">Chart.js</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
@@ -488,22 +493,26 @@ export default function Home() {
           }`}>
             <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/4 h-32 md:h-32 bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0">
-                <div className="text-white text-center">
-                  <div className="text-sm font-mono">Theme Preview</div>
-                </div>
+              <div className="w-full md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden">
+                <Image 
+                  src="/images/stylesaitu.png" 
+                  alt="Styles Aitu - Shopify Store with Payflex Integration" 
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Project Content - Right Side */}
               <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
-                <h4 className="font-archivo-black text-black text-lg mb-2">Halcyon Theme</h4>
+                <h4 className="font-archivo-black text-black text-lg mb-2">Styles Aitu - E-commerce Store</h4>
                 <p className="text-gray-600 text-sm mb-4 font-mono">
-                  Minimal dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Clean design focused on readability and reduced eye strain during long coding sessions.
+                  A modern Shopify e-commerce store featuring seamless Payflex payment integration for flexible payment options. Custom theme development with responsive design and optimized checkout experience.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded">VS Code</span>
-                  <span className="px-3 py-1 bg-orange-500 text-white text-xs font-mono rounded">Sublime</span>
-                  <span className="px-3 py-1 bg-green-600 text-white text-xs font-mono rounded">Atom</span>
-                  <span className="px-3 py-1 bg-gray-600 text-white text-xs font-mono rounded">iTerm</span>
+                  <span className="px-3 py-1 bg-green-600 text-white text-xs font-mono rounded">Shopify</span>
+                  <span className="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded">Liquid</span>
+                  <span className="px-3 py-1 bg-orange-500 text-white text-xs font-mono rounded">Payflex</span>
+                  <span className="px-3 py-1 bg-purple-600 text-white text-xs font-mono rounded">JavaScript</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
@@ -522,22 +531,26 @@ export default function Home() {
           }`}>
             <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/4 h-32 md:h-32 bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0">
-                <div className="text-white text-center">
-                  <div className="text-sm font-mono">Portfolio Site</div>
-                </div>
+              <div className="w-full md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden">
+                <Image 
+                  src="/images/thisportfolio.png" 
+                  alt="Personal Portfolio Website" 
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
               {/* Project Content - Right Side */}
               <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
-                <h4 className="font-archivo-black text-black text-lg mb-2">brittanychiang.com (v4)</h4>
+                <h4 className="font-archivo-black text-black text-lg mb-2">Personal Portfolio Website</h4>
                 <p className="text-gray-600 text-sm mb-4 font-mono">
-                  An old portfolio site built with Gatsby with 6k+ stars and 3k+ forks. Features smooth animations, responsive design, and modern web development practices.
+                  A modern, responsive portfolio website built with Next.js and Tailwind CSS. Features smooth animations, clean design, interactive elements, and showcases projects with optimized performance.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-purple-600 text-white text-xs font-mono rounded">Gatsby</span>
+                  <span className="px-3 py-1 bg-black text-white text-xs font-mono rounded">Next.js</span>
                   <span className="px-3 py-1 bg-blue-500 text-white text-xs font-mono rounded">React</span>
-                  <span className="px-3 py-1 bg-pink-500 text-white text-xs font-mono rounded">Styled Components</span>
-                  <span className="px-3 py-1 bg-green-500 text-white text-xs font-mono rounded">GraphQL</span>
+                  <span className="px-3 py-1 bg-cyan-500 text-white text-xs font-mono rounded">Tailwind CSS</span>
+                  <span className="px-3 py-1 bg-yellow-500 text-white text-xs font-mono rounded">TypeScript</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
