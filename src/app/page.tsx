@@ -452,9 +452,9 @@ export default function Home() {
           <div className={`transition-all duration-300 transform ${
             showProject1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
-            <div className="flex flex-col md:flex-row gap-1.5">
+            <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-full md:w-1/4 h-32 md:h-32 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0">
                 <div className="text-white text-center">
                   <div className="text-sm font-mono">Project Preview</div>
                 </div>
@@ -486,9 +486,9 @@ export default function Home() {
           <div className={`transition-all duration-300 transform ${
             showProject2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
-            <div className="flex flex-col md:flex-row gap-1.5">
+            <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-full md:w-1/4 h-32 md:h-32 bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0">
                 <div className="text-white text-center">
                   <div className="text-sm font-mono">Theme Preview</div>
                 </div>
@@ -520,9 +520,9 @@ export default function Home() {
           <div className={`transition-all duration-300 transform ${
             showProject3 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
-            <div className="flex flex-col md:flex-row gap-1.5">
+            <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-full md:w-1/4 h-32 md:h-32 bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0">
                 <div className="text-white text-center">
                   <div className="text-sm font-mono">Portfolio Site</div>
                 </div>
