@@ -446,7 +446,7 @@ export default function Home() {
           WHAT I HAVE BEEN UP TO
           </h2>
           <h4 className=" font-archivo-black text-black text-lg mb-2">
-                   Outside of my 9-5...
+                   ...outside of my 9-5
                  </h4>
         </div>         
 
@@ -481,7 +481,7 @@ export default function Home() {
               >
                 <h4 className="font-archivo-black text-black text-lg mb-2">StylesaItu - E-commerce Store</h4>
                 <p className="text-gray-600 text-sm mb-4 font-mono">
-                  A modern Shopify e-commerce store featuring seamless Payflex payment integration for flexible payment options. Custom theme development with responsive design and optimized checkout experience.
+                  A Shopify e-commerce store featuring seamless Payflex payment integration for flexible payment options. Custom theme development with responsive design and optimized checkout experience.
                 </p>
                 <div className="flex flex-wrap gap-4 mb-4">
                   <span className="border-b-2 border-green-600 text-black text-sm font-mono">Shopify</span>
@@ -537,7 +537,7 @@ export default function Home() {
                 </p>
                 <div className="flex flex-wrap gap-4 mb-4">
                   <span className="border-b-2 border-black text-black text-sm font-mono">Next.js</span>
-                  <span className="border-b-2 border-blue-500 text-black text-sm font-mono">React</span>
+                  <span className="border-b-2 border-blue-500 text-black text-sm font-mono">Vercel</span>
                   <span className="border-b-2 border-cyan-500 text-black text-sm font-mono">Tailwind CSS</span>
                   <span className="border-b-2 border-yellow-500 text-black text-sm font-mono">TypeScript</span>
                 </div>
@@ -585,7 +585,7 @@ export default function Home() {
                >
                  <h4 className="font-archivo-black text-black text-lg mb-2">Spent - Expense Tracker</h4>
                  <p className="text-gray-600 text-sm mb-4 font-mono">
-                   A modern expense tracking application built with React and Node.js. Features include expense categorization, budget tracking, data visualization, and real-time analytics for personal finance management.
+                   An expense tracking application built with React and Node.js. Features include expense categorization, budget tracking, data visualization, and real-time analytics for personal finance management.
                  </p>
                  <div className="flex flex-wrap gap-4 mb-4">
                    <span className="border-b-2 border-[#82C8E5] text-black text-sm font-mono">React</span>
