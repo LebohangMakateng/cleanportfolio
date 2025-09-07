@@ -456,7 +456,6 @@ export default function Home() {
               {/* Project Image/Preview - Left Side */}
               <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🚀</div>
                   <div className="text-sm font-mono">Project Preview</div>
                 </div>
               </div>
@@ -473,9 +472,6 @@ export default function Home() {
                   <span className="px-3 py-1 bg-purple-500 text-white text-xs font-mono rounded">Heroku</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <span>⭐ 694</span>
-                  </div>
                   <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -494,7 +490,6 @@ export default function Home() {
               {/* Project Image/Preview - Left Side */}
               <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="text-white text-center">
-                  <div className="text-4xl mb-2">🎨</div>
                   <div className="text-sm font-mono">Theme Preview</div>
                 </div>
               </div>
@@ -511,9 +506,6 @@ export default function Home() {
                   <span className="px-3 py-1 bg-gray-600 text-white text-xs font-mono rounded">iTerm</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <span>📥 100k+ Installs</span>
-                  </div>
                   <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -532,7 +524,6 @@ export default function Home() {
               {/* Project Image/Preview - Left Side */}
               <div className="w-full md:w-1/3 h-48 md:h-auto bg-gradient-to-br from-pink-500 to-orange-500 flex items-center justify-center rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="text-white text-center">
-                  <div className="text-4xl mb-2">💼</div>
                   <div className="text-sm font-mono">Portfolio Site</div>
                 </div>
               </div>
@@ -549,9 +540,6 @@ export default function Home() {
                   <span className="px-3 py-1 bg-green-500 text-white text-xs font-mono rounded">GraphQL</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center text-gray-500 text-sm">
-                    <span>⭐ 6,000+</span>
-                  </div>
                   <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
