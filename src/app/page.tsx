@@ -372,7 +372,7 @@ export default function Home() {
             <div className="text-center">
               
               <h3 className="text-lg md:text-lg text-base font-medium mb-3 text-black">
-                <span className="border-b-2 border-pink-500">Software</span> Development
+                <span className="border-b-2 border-pink-500">Software Development</span>
               </h3>
               <p className="text-black text-xs mb-3 font-mono font-bold">Full-stack, future-focused.</p>
               <p className="text-black text-sm md:text-sm text-xs leading-relaxed font-mono font-bold">
@@ -422,7 +422,7 @@ export default function Home() {
         </div>
           
         {/* Credly Badges */}
-         <div className="flex flex-wrap justify-center items-center gap-4 mt-12 max-w-4xl">
+         <div className="flex flex-wrap justify-center items-center gap-4 mt-4 max-w-4xl">
            <div className={`transition-all duration-1000 ease-out transform ${
              showBadge1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
            }`}>
@@ -440,52 +440,19 @@ export default function Home() {
            </div>
          </div>
          
-        {/* Projects Section */}
-        <div className="text-center mt-20">
-          <h3 className="text-lg md:text-lg text-base font-medium mb-8 text-black">
-            <span className="">WHAT I HAVE BEEN UP TO</span>
-          </h3>
-        </div>
+
+         <div className="text-center mb-12 md:mb-10 mt-12 mb-2">
+          <h2 className="font-archivo-black text-black text-2xl md:text-4xl lg:text-5xl tracking-tight leading-none">
+          WHAT I HAVE BEEN UP TO
+          </h2>
+          <h4 className=" font-archivo-black text-black text-lg mb-2">
+                   Outside of my 9-5...
+                 </h4>
+        </div>         
 
         {/* Project Cards */}
         <div className="flex flex-col gap-8 max-w-5xl w-full mt-8">
-          {/* Project 1 */}
-          <div className={`transition-all duration-300 transform ${
-            showProject1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
-          }`}>
-            <div className="flex flex-col md:flex-row gap-8 md:items-start">
-              {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden">
-                <Image 
-                  src="/images/spent.png" 
-                  alt="Spent App Screenshot" 
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* Project Content - Right Side */}
-              <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
-                <h4 className="font-archivo-black text-black text-lg mb-2">Spent - Expense Tracker</h4>
-                <p className="text-gray-600 text-sm mb-4 font-mono">
-                  A modern expense tracking application built with React and Node.js. Features include expense categorization, budget tracking, data visualization, and real-time analytics for personal finance management.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-[#82C8E5] text-white text-xs font-mono rounded">React</span>
-                  <span className="px-3 py-1 bg-green-500 text-white text-xs font-mono rounded">Node.js</span>
-                  <span className="px-3 py-1 bg-yellow-500 text-white text-xs font-mono rounded">MongoDB</span>
-                  <span className="px-3 py-1 bg-purple-500 text-white text-xs font-mono rounded">Chart.js</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           {/* Project 2 */}
           <div className={`transition-all duration-300 transform ${
@@ -493,7 +460,12 @@ export default function Home() {
           }`}>
             <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden">
+              <a 
+                href="https://stylesaitu.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-3/5 md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
+              >
                 <Image 
                   src="/images/stylesaitu.png" 
                   alt="Styles Aitu - Shopify Store with Payflex Integration" 
@@ -501,21 +473,30 @@ export default function Home() {
                   height={300}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </a>
               {/* Project Content - Right Side */}
-              <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
-                <h4 className="font-archivo-black text-black text-lg mb-2">Styles Aitu - E-commerce Store</h4>
+              <div 
+                onClick={() => window.open('https://stylesaitu.com/', '_blank')}
+                className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+              >
+                <h4 className="font-archivo-black text-black text-lg mb-2">StylesaItu - E-commerce Store</h4>
                 <p className="text-gray-600 text-sm mb-4 font-mono">
                   A modern Shopify e-commerce store featuring seamless Payflex payment integration for flexible payment options. Custom theme development with responsive design and optimized checkout experience.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-green-600 text-white text-xs font-mono rounded">Shopify</span>
-                  <span className="px-3 py-1 bg-blue-600 text-white text-xs font-mono rounded">Liquid</span>
-                  <span className="px-3 py-1 bg-orange-500 text-white text-xs font-mono rounded">Payflex</span>
-                  <span className="px-3 py-1 bg-purple-600 text-white text-xs font-mono rounded">JavaScript</span>
+                <div className="flex flex-wrap gap-4 mb-4">
+                  <span className="border-b-2 border-green-600 text-black text-sm font-mono">Shopify</span>
+                  <span className="border-b-2 border-blue-600 text-black text-sm font-mono">Liquid</span>
+                  <span className="border-b-2 border-orange-500 text-black text-sm font-mono">Payflex</span>
+                  <span className="border-b-2 border-purple-600 text-black text-sm font-mono">JavaScript</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open('https://stylesaitu.com/', '_blank');
+                    }}
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                  >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -531,7 +512,12 @@ export default function Home() {
           }`}>
             <div className="flex flex-col md:flex-row gap-8 md:items-start">
               {/* Project Image/Preview - Left Side */}
-              <div className="w-full md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden">
+              <a 
+                href="http://lebohangmakateng.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-3/5 md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
+              >
                 <Image 
                   src="/images/thisportfolio.png" 
                   alt="Personal Portfolio Website" 
@@ -539,21 +525,30 @@ export default function Home() {
                   height={300}
                   className="w-full h-full object-cover"
                 />
-              </div>
+              </a>
               {/* Project Content - Right Side */}
-              <div className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300">
+              <div 
+                onClick={() => window.open('http://lebohangmakateng.com/', '_blank')}
+                className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+              >
                 <h4 className="font-archivo-black text-black text-lg mb-2">Personal Portfolio Website</h4>
                 <p className="text-gray-600 text-sm mb-4 font-mono">
                   A modern, responsive portfolio website built with Next.js and Tailwind CSS. Features smooth animations, clean design, interactive elements, and showcases projects with optimized performance.
                 </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 bg-black text-white text-xs font-mono rounded">Next.js</span>
-                  <span className="px-3 py-1 bg-blue-500 text-white text-xs font-mono rounded">React</span>
-                  <span className="px-3 py-1 bg-cyan-500 text-white text-xs font-mono rounded">Tailwind CSS</span>
-                  <span className="px-3 py-1 bg-yellow-500 text-white text-xs font-mono rounded">TypeScript</span>
+                <div className="flex flex-wrap gap-4 mb-4">
+                  <span className="border-b-2 border-black text-black text-sm font-mono">Next.js</span>
+                  <span className="border-b-2 border-blue-500 text-black text-sm font-mono">React</span>
+                  <span className="border-b-2 border-cyan-500 text-black text-sm font-mono">Tailwind CSS</span>
+                  <span className="border-b-2 border-yellow-500 text-black text-sm font-mono">TypeScript</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <button className="text-[#82C8E5] hover:text-blue-600 transition-colors">
+                  <button 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.open('http://lebohangmakateng.com/', '_blank');
+                    }}
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                  >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -562,6 +557,58 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+                    {/* Project 1 */}
+                    <div className={`transition-all duration-300 transform ${
+            showProject1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
+          }`}>
+             <div className="flex flex-col md:flex-row gap-8 md:items-start">
+               {/* Project Image/Preview - Left Side */}
+               <a 
+                 href="https://spentbylebo.onrender.com/" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="w-3/5 md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
+               >
+                 <Image 
+                   src="/images/spent.png" 
+                   alt="Spent App Screenshot" 
+                   width={400}
+                   height={300}
+                   className="w-full h-full object-cover"
+                 />
+               </a>
+               {/* Project Content - Right Side */}
+               <div 
+                 onClick={() => window.open('https://spentbylebo.onrender.com/', '_blank')}
+                 className="flex-1 p-6 bg-white shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer"
+               >
+                 <h4 className="font-archivo-black text-black text-lg mb-2">Spent - Expense Tracker</h4>
+                 <p className="text-gray-600 text-sm mb-4 font-mono">
+                   A modern expense tracking application built with React and Node.js. Features include expense categorization, budget tracking, data visualization, and real-time analytics for personal finance management.
+                 </p>
+                 <div className="flex flex-wrap gap-4 mb-4">
+                   <span className="border-b-2 border-[#82C8E5] text-black text-sm font-mono">React</span>
+                   <span className="border-b-2 border-green-500 text-black text-sm font-mono">Node.js</span>
+                   <span className="border-b-2 border-purple-500 text-black text-sm font-mono">Chart.js</span>
+                 </div>
+                 <div className="flex items-center justify-between">
+                   <button 
+                     onClick={(e) => {
+                       e.stopPropagation();
+                       window.open('https://spentbylebo.onrender.com/', '_blank');
+                     }}
+                     className="text-gray-400 hover:text-gray-600 transition-colors"
+                   >
+                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                     </svg>
+                   </button>
+                 </div>
+               </div>
+            </div>
+          </div>
+          
         </div>
 
       </div>
