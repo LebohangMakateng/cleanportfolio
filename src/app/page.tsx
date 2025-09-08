@@ -171,35 +171,31 @@ export default function Home() {
                <span className="text-xs">01</span>
                <span className="text-sm tracking-wide">{'// home'}</span>
              </a>
+             
             <a 
-              href="#expertise" 
+              href="#skillset" 
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth' });
+                document.getElementById('skillset')?.scrollIntoView({ behavior: 'smooth' });
               }}
               className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
             >
               <span className="text-xs">02</span>
-                             <span className="text-sm tracking-wide">{'// expertise'}</span>
+              <span className="text-sm tracking-wide">{'// skillset'}</span>
             </a>
-            <div 
-              className="relative flex flex-col items-center hover:text-[#82C8E5] transition-colors cursor-pointer"
-              onMouseEnter={() => setShowProjectsDropdown(true)}
-              onMouseLeave={() => setShowProjectsDropdown(false)}
-            >
-              <span className="text-xs">03</span>
-              <span className="text-sm tracking-wide">{'// projects'}</span>
-              {showProjectsDropdown && (
-                <div className="absolute top-full mt-2 z-50">
-                  <a 
-                    href="/projects/spent" 
-                    className="block px-4 py-2 text-base text-gray-600 hover:text-[#82C8E5] transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
+
+            <a 
+              href="projects" 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
                   >
-                    Spent
+                    <span className="text-xs">03</span>
+                    <span className="text-sm tracking-wide">{'// projects'}</span>
                   </a>
-                </div>
-              )}
-            </div>
+
              <a 
                href="#contact" 
                onClick={(e) => {
@@ -211,6 +207,7 @@ export default function Home() {
                <span className="text-xs">04</span>
                                <span className="text-sm tracking-wide">{'// contact'}</span>
              </a>
+
           </div>
         </div>
       </nav>
@@ -244,38 +241,33 @@ export default function Home() {
             <div className="space-y-8 text-black font-mono">
                              <a href="#" className="block text-lg hover:text-[#82C8E5] transition-colors">{'// home'}</a>
               <a 
-                href="#expertise" 
+                href="#skillset" 
                 onClick={(e) => {
                   e.preventDefault();
                   setMobileMenuOpen(false); // Close mobile menu first
                   // Add delay to ensure menu closes before scrolling
                   setTimeout(() => {
-                    document.getElementById('expertise')?.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('skillset')?.scrollIntoView({ behavior: 'smooth' });
                   }, 300);
                 }}
                 className="block text-lg hover:text-[#82C8E5] transition-colors"
               >
-                                 {'// expertise'}
+                                 {'// skillset'}
               </a>
-            <div className="space-y-2">
-              <button 
-                onClick={() => setShowProjectsDropdown(!showProjectsDropdown)}
-                className="block text-lg hover:text-[#82C8E5] transition-colors text-left w-full"
+            <a 
+                href="#projects" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false); // Close mobile menu first
+                  // Add delay to ensure menu closes before scrolling
+                  setTimeout(() => {
+                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                  }, 300);
+                }}
+                className="block text-lg hover:text-[#82C8E5] transition-colors"
               >
-                {'// projects'}
-              </button>
-              {showProjectsDropdown && (
-                <div className="ml-4 space-y-2">
-                  <a 
-                    href="/projects/spent" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block text-base text-gray-600 hover:text-[#82C8E5] transition-colors"
-                  >
-                    Spent
-                  </a>
-                </div>
-              )}
-            </div>
+                                 {'// projects'}
+              </a>
                <a 
                  href="#contact" 
                  onClick={(e) => {
@@ -356,8 +348,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Second Section - Expertise */}
-      <div id="expertise" className="min-h-screen bg-white flex flex-col items-center justify-center px-4 pb-20">
+      {/* Second Section - skillset */}
+      <div id="skillset" className="min-h-screen bg-white flex flex-col items-center justify-center px-4 pb-20 pt-14">
         <div className="text-center mb-12 md:mb-12 mb-2">
           <h2 className="font-archivo-black text-black text-2xl md:text-4xl lg:text-5xl tracking-tight leading-none">
           WHERE I THRIVE
@@ -366,7 +358,7 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full md:max-w-5xl max-w-sm">
           {/* Software Development Card */}
-          <div className={` p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+          <div className={` p-6 md:p-6 shadow-sm hover:shadow-md p-4 transition-all duration-1000 ease-out transform ${
             showCard1 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
@@ -381,8 +373,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Frontend Dev Card */}
-          <div className={` p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+          {/* Solutions Architecture Dev Card */}
+          <div className={` p-6 md:p-6 shadow-sm hover:shadow-md p-4 transition-all duration-1000 ease-out transform ${
             showCard2 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
@@ -397,8 +389,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Flutter Dev Card */}
-          <div className={`p-6 md:p-6 p-4 transition-all duration-1000 ease-out transform ${
+          {/* Efficiency Catalyst Dev Card */}
+          <div className={`p-6 md:p-6 shadow-sm hover:shadow-md p-4 transition-all duration-1000 ease-out transform ${
             showCard3 ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8'
           }`}>
             <div className="text-center">
@@ -409,7 +401,7 @@ export default function Home() {
               <p className="text-black text-xs mb-3 font-mono font-bold">Automation, AI</p>
               <p className="text-black text-sm md:text-sm text-xs leading-relaxed font-mono font-bold">
               I partner with innovative minds to design and build secure, scalable software solutions that drive real results,
-              bringing enterprise-level expertise ready to elevate digital presences.
+              bringing enterprise-level skillset ready to elevate digital presences.
               </p>
             </div>
           </div>
@@ -441,7 +433,7 @@ export default function Home() {
          </div>
          
 
-         <div className="text-center mb-12 md:mb-10 mt-12 mb-2">
+         <div id="projects" className="text-center mb-8 md:mb-10 mt-12 mb-2 pt-14">
           <h2 className="font-archivo-black text-black text-2xl md:text-4xl lg:text-5xl tracking-tight leading-none">
           WHAT I HAVE BEEN UP TO
           </h2>
@@ -464,7 +456,7 @@ export default function Home() {
                 href="https://stylesaitu.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-3/5 md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
+                className="w-3/5 md:w-1/4 h-32 md:h-32 shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
               >
                 <Image 
                   src="/images/stylesaitu.png" 
@@ -516,7 +508,7 @@ export default function Home() {
                 href="http://lebohangmakateng.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-3/5 md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
+                className="w-3/5 md:w-1/4 h-32 md:h-32 shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
               >
                 <Image 
                   src="/images/thisportfolio.png" 
@@ -568,7 +560,7 @@ export default function Home() {
                  href="https://spentbylebo.onrender.com/" 
                  target="_blank" 
                  rel="noopener noreferrer"
-                 className="w-3/5 md:w-1/4 h-32 md:h-32 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
+                 className="w-3/5 md:w-1/4 h-32 md:h-32 shadow-sm hover:shadow-md transition-all duration-300 flex-shrink-0 overflow-hidden cursor-pointer"
                >
                  <Image 
                    src="/images/spent.png" 
