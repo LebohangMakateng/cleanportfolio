@@ -7,6 +7,8 @@ import Image from 'next/image';
 export default function Home() {
   const [displayText1, setDisplayText1] = useState('');
   const [displayText2, setDisplayText2] = useState('');
+  const [displayText3, setDisplayText3] = useState('');
+  const [isBackspacing, setIsBackspacing] = useState(false);
   const [showNav, setShowNav] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollLine, setShowScrollLine] = useState(false);
@@ -22,11 +24,10 @@ export default function Home() {
   const [showProject2, setShowProject2] = useState(false);
   const [showProject3, setShowProject3] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
-  const [showProjectsDropdown, setShowProjectsDropdown] = useState(false);
   const fullText1 = 'LEBOHANG';
   const fullText2 = 'MAKATENG';
   const fullText3 = 'Engineer.';
-  const fullText4 = 'Builder.';
+  const tempText = 'Builder.';
 
   // Custom smooth scroll function with slower animation
   const smoothScrollTo = (elementId: string) => {
@@ -56,6 +57,48 @@ export default function Home() {
     if (t < 1) return c / 2 * t * t * t + b;
     t -= 2;
     return c / 2 * (t * t * t + 2) + b;
+  };
+
+  // Typewriter effect with backspace for Builder -> Engineer
+  const typewriterWithBackspace = (callback: () => void) => {
+    let index = 0;
+    let isTyping = true;
+    
+    // First, type "Builder."
+    const typeTimer = setInterval(() => {
+      if (isTyping && index < tempText.length) {
+        setDisplayText3(tempText.slice(0, index + 1));
+        index++;
+      } else if (isTyping && index >= tempText.length) {
+        // Finished typing "Builder.", now wait and start backspacing
+        isTyping = false;
+        index = tempText.length - 1;
+        setTimeout(() => {
+          setIsBackspacing(true);
+          const backspaceTimer = setInterval(() => {
+            if (!isTyping && index >= 0) {
+              setDisplayText3(tempText.slice(0, index));
+              index--;
+            } else if (!isTyping && index < 0) {
+              // Finished backspacing, now type "Engineer."
+              clearInterval(backspaceTimer);
+              setIsBackspacing(false);
+              index = 0;
+              const finalTimer = setInterval(() => {
+                if (index < fullText3.length) {
+                  setDisplayText3(fullText3.slice(0, index + 1));
+                  index++;
+                } else {
+                  clearInterval(finalTimer);
+                  callback();
+                }
+              }, 150);
+            }
+          }, 100); // Faster backspace speed
+        }, 1000); // Wait 1 second before backspacing
+        clearInterval(typeTimer);
+      }
+    }, 150);
   };
 
   // Update time every second
@@ -95,15 +138,18 @@ export default function Home() {
             index2++;
           } else {
             clearInterval(timer2);
-            // Show navigation and scroll elements after typing is complete
-            setTimeout(() => {
-              setShowNav(true);
-              setShowScrollLine(true);
-              // Show scroll text after line animation
+            // Start the typewriter effect with backspace for third word
+            typewriterWithBackspace(() => {
+              // Show navigation and scroll elements after typing is complete
               setTimeout(() => {
-                setShowScrollText(true);
-              }, 800); // Delay for line animation
-            }, 500);
+                setShowNav(true);
+                setShowScrollLine(true);
+                // Show scroll text after line animation
+                setTimeout(() => {
+                  setShowScrollText(true);
+                }, 800); // Delay for line animation
+              }, 500);
+            });
           }
         }, 150); // Slightly faster for second word
       }
@@ -375,6 +421,9 @@ export default function Home() {
           <h2 className="font-archivo-black text-black text-5xl md:text-6xl tracking-tight leading-none mt-1">
             {displayText2}
           </h2>
+          <div className="font-archivo-black text-black text-2xl md:text-3xl tracking-tight leading-none mt-2">
+            {displayText3}
+          </div>
         </div>
       </div>
 
