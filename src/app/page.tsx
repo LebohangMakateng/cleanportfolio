@@ -28,6 +28,36 @@ export default function Home() {
   const fullText3 = 'Engineer.';
   const fullText4 = 'Builder.';
 
+  // Custom smooth scroll function with slower animation
+  const smoothScrollTo = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const targetPosition = element.offsetTop - 80; // Offset for better positioning
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1200; // 1.2 seconds for slower scroll
+      let start: number | null = null;
+
+      const animation = (currentTime: number) => {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const run = easeInOutCubic(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+      };
+
+      requestAnimationFrame(animation);
+    }
+  };
+
+  // Easing function for smooth animation
+  const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t * t + b;
+    t -= 2;
+    return c / 2 * (t * t * t + 2) + b;
+  };
+
   // Update time every second
   useEffect(() => {
     const updateTime = () => {
@@ -176,7 +206,7 @@ export default function Home() {
               href="#skillset" 
               onClick={(e) => {
                 e.preventDefault();
-                document.getElementById('skillset')?.scrollIntoView({ behavior: 'smooth' });
+                smoothScrollTo('skillset');
               }}
               className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
             >
@@ -188,7 +218,7 @@ export default function Home() {
               href="projects" 
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                      smoothScrollTo('projects');
                     }}
                     className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
                   >
@@ -200,7 +230,7 @@ export default function Home() {
                href="#contact" 
                onClick={(e) => {
                  e.preventDefault();
-                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                 smoothScrollTo('contact');
                }}
                className="flex flex-col items-center hover:text-[#82C8E5] transition-colors"
              >
@@ -247,7 +277,7 @@ export default function Home() {
                   setMobileMenuOpen(false); // Close mobile menu first
                   // Add delay to ensure menu closes before scrolling
                   setTimeout(() => {
-                    document.getElementById('skillset')?.scrollIntoView({ behavior: 'smooth' });
+                    smoothScrollTo('skillset');
                   }, 300);
                 }}
                 className="block text-lg hover:text-[#82C8E5] transition-colors"
@@ -261,7 +291,7 @@ export default function Home() {
                   setMobileMenuOpen(false); // Close mobile menu first
                   // Add delay to ensure menu closes before scrolling
                   setTimeout(() => {
-                    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+                    smoothScrollTo('projects');
                   }, 300);
                 }}
                 className="block text-lg hover:text-[#82C8E5] transition-colors"
@@ -275,7 +305,7 @@ export default function Home() {
                    setMobileMenuOpen(false); // Close mobile menu first
                    // Add delay to ensure menu closes before scrolling
                    setTimeout(() => {
-                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                     smoothScrollTo('contact');
                    }, 300);
                  }}
                  className="block text-lg hover:text-[#82C8E5] transition-colors"
@@ -615,7 +645,7 @@ export default function Home() {
             {/* Call Button */}
             <a 
               href="tel:+27640671506"
-              className="flex items-center space-x-3 px-6 py-3 border border-black hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer text-black"
+              className="flex items-center space-x-3 px-6 py-3 shadow-sm hover:shadow-md hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer text-black"
             >
               <svg className="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -626,7 +656,7 @@ export default function Home() {
             {/* Email Link */}
             <a 
               href="mailto:lebohangdev@gmail.com"
-              className="flex items-center space-x-3 px-6 py-3 border border-black hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer text-black"
+              className="flex items-center space-x-3 px-6 py-3 shadow-sm hover:shadow-md hover:bg-black hover:text-white transition-colors duration-300 cursor-pointer text-black"
             >
               <svg className="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
