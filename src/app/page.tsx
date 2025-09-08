@@ -369,30 +369,8 @@ export default function Home() {
         <button 
           onClick={() => {
             setScrollClicked(true);
-            // Custom slow scroll animation
-            const startPosition = window.pageYOffset;
-            const targetPosition = window.innerHeight - 130;
-            const distance = targetPosition - startPosition;
-            const duration = 4000; // 4 seconds for much slower scroll
-            let startTime: number | null = null;
-            
-            function animation(currentTime: number) {
-              if (startTime === null) startTime = currentTime;
-              const timeElapsed = currentTime - startTime;
-              const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-              window.scrollTo(0, run);
-              if (timeElapsed < duration) requestAnimationFrame(animation);
-            }
-            
-            // Easing function for smooth animation
-            function easeInOutQuad(t: number, b: number, c: number, d: number) {
-              t /= d / 2;
-              if (t < 1) return c / 2 * t * t + b;
-              t--;
-              return -c / 2 * (t * (t - 2) - 1) + b;
-            }
-            
-            requestAnimationFrame(animation);
+            // Use the same smooth scroll function as menu items
+            smoothScrollTo('skillset');
             
             // Trigger card animations when scroll button is clicked
             if (!showCard1) {
@@ -428,7 +406,7 @@ export default function Home() {
       </div>
 
       {/* Second Section - skillset */}
-      <div id="skillset" className="min-h-screen bg-white flex flex-col items-center justify-center px-4 pb-20 pt-14">
+      <div id="skillset" className="min-h-screen bg-white flex flex-col items-center justify-center px-4 pb-20 pt-12">
         <div className="text-center mb-12 md:mb-12 mb-2">
           <h2 className="font-archivo-black text-black text-2xl md:text-4xl lg:text-5xl tracking-tight leading-none">
           WHERE I THRIVE
@@ -512,7 +490,7 @@ export default function Home() {
          </div>
          
 
-         <div id="projects" className="text-center mb-8 md:mb-10 mt-12 mb-2 pt-14">
+         <div id="projects" className="text-center mb-8 md:mb-10 mt-12 mb-2 pt-12">
           <h2 className="font-archivo-black text-black text-2xl md:text-4xl lg:text-5xl tracking-tight leading-none">
           WHAT I HAVE BEEN UP TO
           </h2>
