@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo_Black } from "next/font/google";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const archivoBlack = Archivo_Black({
   weight: "400",
@@ -24,6 +25,7 @@ export default function RootLayout({
         className={`${archivoBlack.variable} antialiased`}
       >
         {children}
+        <SpeedInsights/>
       </body>
     </html>
   );
